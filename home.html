@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Home </title>
+	<style>
+	body{
+
+		background: linear-gradient(to right,#3a7bd5, #3a6073);
+		font-family: Arial, Helvetica, sans-serif;
+		height: 100vh;
+		
+		}
+		
+		.center{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	
+	
+	
+		}
+	
+		.center button{
+		padding: 10px 20px;
+		font-size: 15px;
+		font-weight: 600;
+		color: #222;
+		background: #f5f5f5;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		border-radius: 5px;
+		}
+	
+		.popup{
+		position: absolute;
+		top: -150%;
+		left: 50%;
+		opacity: 0;
+		transform: translate(-50%, -50%) scale(1.25);
+		width: 380px;
+		padding: 20px 30px;
+		background: #fff;
+		box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 15);
+		border-radius: 10px;
+		transition: top 0ms ease-in-out 200ms,
+					opacity 200ms ease-in-out 0ms,
+					transform 20ms ease-in-out 0ms;
+		}
+
+		.popup.active{
+		top: 50%;
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+		transition: top 0ms ease-in-out 0ms,
+					opacity 200ms ease-in-out 0ms,
+					transform 20ms ease-in-out 0ms;
+		}
+
+		/* .popup .show{
+	
+		opacity: 1;
+		pointer-events: outo;
+	
+		} */
+		.popup .close-btn{
+	
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			width: 15px;
+			height: 15px;
+			background: #888;
+			color: #eee;
+			text-align: center;
+			line-height: 15px;
+			border-radius: 15px;
+			cursor: pointer;
+		}
+	
+		.popup .form h2{
+		text-align: center;
+		color: #222;
+		margin: 10px 0px 20px;
+		font-size: 25px;
+	
+		}
+	
+		.popup .form-element{
+	
+			margin: 15px 0px;
+	
+		}
+	
+		.popup .form-element label{
+	
+		font-size: 14px;
+		color: #222;
+		}
+	
+		.popup .form-element input[type="text"],
+		.popup .form-element input[type="text"],
+		.popup .form-element input[type="text"],
+		.popup .form-element input[type="text"]{
+	
+		margin-top: 5px;
+		display: block;
+		width: 100%;
+		padding: 10px;
+		outline: none;
+		border: 1px solid #aaa;
+		border-radius: 5px;
+	
+		}
+	
+		.popup .form-element button{
+		width: 100%;
+		height: 40px;
+		border: none;
+		outline: none;
+		font-size: 16px;
+		background: #222;
+		color: #f5f5f5;
+		border-radius: 10px;
+		cursor: pointer;
+	
+		}
+	</style>
+</head>
+
+
+
+
+<body>
+
+
+
+
+	
+<h1>Welcome </h1>
+
+
+
+ <div class="btn-group">
+  <button id="show-login"> Create Class </button>
+  <button id="show-addexam"> Add Exam </button>
+  <button id="show-addquiz"> Add Quiz </button>
+  <button id="show-addassingmnet"> Add Assingment </button>
+  </div>
+
+
+<div class="popup" id="popup">
+   
+	<div class="close-btn" id="close-btn">&times;</div>
+
+	<div class="form">
+		<h2>Create Class</h2>
+		<form action="validationforcreateclass.php" method="post">
+		<div class="form-element">
+			<label for="nameclass"> Name your Class </label>
+			
+			<input type="text" id="nameclass" placeholder="Name of Class" class="form-control" required>
+		</div>
+		<div class="form-element">
+			<label for="disription"> Discription </label>
+			<input type="text" id="discription" placeholder="Discribe your class" class="form-control" required>
+		</div>
+
+		<div class="form-element">
+			<label for="year"> Year </label>
+			<input type="text" id="year" placeholder="Enter Grade" class="form-control" required>
+		</div>
+
+		<div class="form-element">
+			<label for="subject"> Subject </label>
+			<input type="text" id="subject" placeholder="Enter Subject" class="form-control" required>
+		</div>
+
+		<div class="form-element">
+			<button> Submit </button>
+		</div>
+	</form>
+	</div>
+
+
+</div>
+<script>
+
+
+document.querySelector("#show-login").addEventListener("click",function(){
+document.querySelector(".popup").classList.add("active");
+
+});
+
+document.querySelector(".popup .close-btn").addEventListener("click",function(){
+document.querySelector(".popup").classList.remove("active");
+
+});
+
+
+
+
+</script>
+</body>
+</html>
